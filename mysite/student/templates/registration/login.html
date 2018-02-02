@@ -1,0 +1,47 @@
+<html>
+{%if not user.is_authenticated%}
+<head>
+	<title> LOGIN PAGE </title>
+</head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+.button3 {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button2 {background-color: #f44336;}
+</style>
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class ="button3">Login</button>
+	<a href="/" class="button3">HOME</a>
+  </form>
+<p>
+
+</p>
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+{% endblock %}
+{%endif%}
+{% if user.is_authenticated %}
+	
+      <script language="javascript">
+         window.location = "./accounts/profile";
+      </script>
+	  {%endif%}
+
+</html>

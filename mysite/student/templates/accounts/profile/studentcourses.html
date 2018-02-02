@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+		<title> Student Details</title>
+				
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+.button3 {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button2 {background-color: #f44336;}
+</style>
+</head>
+<body>
+<p> 
+Logged in as
+
+{{ request.user.username }}
+	</p>
+	<p>
+	</p>
+<table>
+
+  <caption>Course Details</caption>
+  <tr>
+    <th>Course ID</th>
+    <th>Marks</th>
+  </tr>
+  {%for di in d %}
+	<tr>
+	<td>{{ di.C_ID}}</td>
+	<td>{{ di.Marks }}</td>
+	</tr>
+{% endfor %}
+
+  <tr>
+</table>
+
+<a href="accounts/profile" class="button3">PROFILE</a>
+<a href="./marks" class="button3">MARKS</a>
+<a href="/" class="button3">HOME</a>
+<a href="/logout/" class="button3 button2">LOGOUT</a>
+<a href="./chpassword/" class="button2 button3">CHANGE PASSWORD</a>
+
+
+
+</body>
+</html>
+

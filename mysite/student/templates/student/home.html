@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+		<title> AVIRAL(HOME) </title>
+				
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+.button3 {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button2 {background-color: #f44336;}
+</style>
+</head>
+<body>
+<p> </p>
+{% if user.is_authenticated %}
+<p> 
+Logged in as
+
+{{ request.user.username }}
+	</p>
+	<p>
+	</p>
+	{%endif%}
+	<p></p>
+<table>
+
+  <caption>ALL ACTIVE COURSES</caption>
+  <tr>
+    <th>COURSE ID</th>
+    <th>COURSE NAME</th>
+	<th>COURSE INSTRUCTOR</th>
+	<th>DEPARTMENT OFFERING</th>
+  </tr>
+{%for di in d %}
+<tr>
+	<td>{{ di.CourseID }}</td>
+	<td>{{ di.cname }}</td>
+	<td>{{ di.Instructor.Name }}</td>
+	<td>{{ di.Instructor.dname.D_name}}</td>
+</tr>
+{%endfor%}
+
+  <tr>
+</table>
+{%if user.is_authenticated %}
+<a href="accounts/profile" class="button3">PROFILE</a>
+<a href="./courses" class="button3">ACADEMIC DETAILS</a>
+<a href="./marks" class="button3">MARKS</a>
+<a href="/logout/" class="button2 button3">LOGOUT</a>
+<a href="./chpassword/" class="button2 button3">CHANGE PASSWORD</a>
+{%endif%}
+
+{% if not user.is_authenticated %}
+
+<a href="./admin" class="button3">STAFF LOGIN</a>
+<a href="./accounts/login" class="button3">USER LOGIN</a>
+
+{%endif%}
+
+
+</body>
+</html>
+

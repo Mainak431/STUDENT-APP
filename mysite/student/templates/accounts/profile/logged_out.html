@@ -1,0 +1,12 @@
+<html>
+{% block content %}
+<p>Logged out!</p>  
+
+<a href="{% url 'login'%}">Click here to login again.</a>
+{% endblock %}
+
+      <script language="javascript">
+         window.location = "./accounts/login";
+      </script>
+
+</html>

@@ -1,0 +1,22 @@
+ENROLLMENT ID:
+
+<form method="POST" name="form1" action="/studentmark/">
+<select name="EnrollmentID">
+{% for entry in did %}
+    <option value="{{ entry.EnrollmentID.EnrollmentID }}" name="op1" id="ID1">{{ entry.EnrollmentID.EnrollmentID }}</option>
+{% endfor %}
+</select>
+&nbsp;
+COURSE ID :
+<select name="C_ID">
+{% for entry in did %}
+    <option name="op2" id="ID2" value="{{ entry.C_ID }}">{{ entry.C_ID }}</option>
+{% endfor %}
+</select>
+&nbsp;
+MARKS
+&nbsp
+{{ form.Marks }}
+  
+&nbsp;
+<button type="submit" form="form1" class="button3" name="mybtn" value="Submit">UPDATE</button>
